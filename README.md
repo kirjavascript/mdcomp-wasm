@@ -1,22 +1,19 @@
-# WASM version of flamewing's mdcomp
+# mdcomp-wasm - Sega MegaDrive compressors for WebAssembly
 
-Portable version of mdcomp for use in various languages
+WASM build of [mdcomp](https://github.com/flamewing/mdcomp) by flamewing, using code from [kensc-js](https://github.com/FraGag/kensc-js) by FraGag
+
+This is a portable version of the library for use in various languages
 
 Bindings for javascript are provided
 
-# How to compile
+# generate
 
-Install emscripten sdk: https://emscripten.org/docs/getting_started/downloads.html
-Get boost: https://www.boost.org/users/download/
+Install emscripten sdk: <https://emscripten.org/docs/getting_started/downloads.html>  
+Get boost: <https://www.boost.org/users/download/>  
+Clone mdcomp: `git@github.com:flamewing/mdcomp.git`
+
+then
 
 ```
-git clone git@github.com:flamewing/mdcomp.git
 make wasm
 ```
-
-headers
-O3
-
-em++ mdcomp/src/lib/*.cc -s WASM=1 -Iinclude
-
-em++  -Wall  -O3  -I boost/  -std=c++11  -s NO_EXIT_RUNTIME=1  -s DEMANGLE_SUPPORT=1 -s ALLOW_MEMORY_GROWTH=1  -s EXPORTED_FUNCTIONS="['_cmd','_main']"  src/*.cpp  -o build/harcs.js

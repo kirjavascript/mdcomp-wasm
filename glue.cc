@@ -1,18 +1,28 @@
 #include <mdcomp/snkrle.hh>
 
-#include <istream>
-#include <ostream>
-/* #include <sstream> */
+#include <sstream>
 
-using std::istream;
-using std::ostream;
-
-extern "C" {
-    void snkrle_decode(void *Src, void *Dst) {
-        snkrle::decode((istream&)Src, (ostream&)Dst);
+template <typename Operation>
+static bool perform(char *input, size_t input_size, char **output, size_t *output_size, Operation operation) {
+    std::istringstream input_stream(std::string(input, input_size));
+    std::stringstream output_stream;
+    if (operation(input_stream, output_stream)) {
+        std::string output_string(output_stream.str());
+        *output_size = output_string.size();
+        *output = static_cast<char *>(malloc(*output_size));
+        memcpy(*output, output_string.data(), *output_size);
+        return true;
     }
 
-    void snkrle_encode(void *Dst, void *Src) {
-        snkrle::encode((istream&)Dst, (ostream&)Src);
+    return false;
+}
+
+extern "C" {
+    bool snkrle_decode(char *input, size_t input_size, char **output, size_t *output_size) {
+        return perform(input, input_size, output, output_size, [] (std::istream &is, std::iostream &os) { return snkrle::decode(is, os); });
+    }
+
+    bool snkrle_encode(char *input, size_t input_size, char **output, size_t *output_size) {
+        return perform(input, input_size, output, output_size, [] (std::istream &is, std::ostream &os) { return snkrle::encode(is, os); });
     }
 }
