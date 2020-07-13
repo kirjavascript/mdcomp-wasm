@@ -1,4 +1,4 @@
-# mdcomp-wasm - Sega MegaDrive compressors for WebAssembly
+# mdcomp-wasm 
 
 WASM build of [mdcomp](https://github.com/flamewing/mdcomp) by flamewing, using code from [kensc-js](https://github.com/FraGag/kensc-js) by FraGag
 
