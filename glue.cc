@@ -1,4 +1,6 @@
 #include <mdcomp/snkrle.hh>
+#include <mdcomp/kosinski.hh>
+#include <mdcomp/nemesis.hh>
 
 #include <sstream>
 
@@ -24,5 +26,21 @@ extern "C" {
 
     bool snkrle_encode(char *input, size_t input_size, char **output, size_t *output_size) {
         return perform(input, input_size, output, output_size, [] (std::istream &is, std::ostream &os) { return snkrle::encode(is, os); });
+    }
+
+    bool kosinski_decode(char *input, size_t input_size, char **output, size_t *output_size) {
+        return perform(input, input_size, output, output_size, [] (std::istream &is, std::iostream &os) { return kosinski::decode(is, os); });
+    }
+
+    bool kosinski_encode(char *input, size_t input_size, char **output, size_t *output_size) {
+        return perform(input, input_size, output, output_size, [] (std::istream &is, std::ostream &os) { return kosinski::encode(is, os); });
+    }
+
+    bool nemesis_decode(char *input, size_t input_size, char **output, size_t *output_size) {
+        return perform(input, input_size, output, output_size, [] (std::istream &is, std::iostream &os) { return nemesis::decode(is, os); });
+    }
+
+    bool nemesis_encode(char *input, size_t input_size, char **output, size_t *output_size) {
+        return perform(input, input_size, output, output_size, [] (std::istream &is, std::ostream &os) { return nemesis::encode(is, os); });
     }
 }

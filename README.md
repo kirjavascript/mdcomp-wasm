@@ -17,3 +17,7 @@ then
 ```
 make wasm
 ```
+
+# todo
+
+check what to do on invalid input
