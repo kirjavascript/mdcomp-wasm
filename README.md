@@ -6,7 +6,7 @@ This is a portable version of the library for use in various languages
 
 Bindings for javascript are provided
 
-# generate
+## generate
 
 Install emscripten sdk: <https://emscripten.org/docs/getting_started/downloads.html>  
 Get boost: <https://www.boost.org/users/download/>  
@@ -18,6 +18,6 @@ then
 make wasm
 ```
 
-# todo
+### todo
 
 check what to do on invalid input
