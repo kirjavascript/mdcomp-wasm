@@ -1,0 +1,3 @@
+[submodule "mdcomp"]
+	path = mdcomp
+	url = git@github.com:flamewing/mdcomp.git

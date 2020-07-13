@@ -1,6 +1,9 @@
-#include <mdcomp/snkrle.hh>
 #include <mdcomp/kosinski.hh>
+
 #include <mdcomp/nemesis.hh>
+#include <mdcomp/rocket.hh>
+#include <mdcomp/saxman.hh>
+#include <mdcomp/snkrle.hh>
 
 #include <sstream>
 

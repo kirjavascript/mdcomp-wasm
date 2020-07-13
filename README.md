@@ -10,7 +10,6 @@ Bindings for javascript are provided
 
 Install emscripten sdk: <https://emscripten.org/docs/getting_started/downloads.html>  
 Get boost: <https://www.boost.org/users/download/>  
-Clone mdcomp: `git@github.com:flamewing/mdcomp.git`
 
 then
 
@@ -20,4 +19,5 @@ make wasm
 
 ### todo
 
-check what to do on invalid input
+check what to do on invalid input  
+smaller wasm
