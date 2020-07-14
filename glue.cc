@@ -1,5 +1,9 @@
+#include <mdcomp/artc42.hh>
+#include <mdcomp/comper.hh>
 #include <mdcomp/kosinski.hh>
-
+#include <mdcomp/kosplus.hh>
+#include <mdcomp/enigma.hh>
+#include <mdcomp/lzkn1.hh>
 #include <mdcomp/nemesis.hh>
 #include <mdcomp/rocket.hh>
 #include <mdcomp/saxman.hh>
@@ -45,5 +49,61 @@ extern "C" {
 
     bool nemesis_encode(char *input, size_t input_size, char **output, size_t *output_size) {
         return perform(input, input_size, output, output_size, [] (std::istream &is, std::ostream &os) { return nemesis::encode(is, os); });
+    }
+
+    bool artc42_decode(char *input, size_t input_size, char **output, size_t *output_size) {
+        return perform(input, input_size, output, output_size, [] (std::istream &is, std::iostream &os) { return artc42::decode(is, os); });
+    }
+
+    bool artc42_encode(char *input, size_t input_size, char **output, size_t *output_size) {
+        return perform(input, input_size, output, output_size, [] (std::istream &is, std::ostream &os) { return artc42::encode(is, os); });
+    }
+
+    /* bool saxman_decode(char *input, size_t input_size, char **output, size_t *output_size) { */
+    /*     return perform(input, input_size, output, output_size, [] (std::istream &is, std::iostream &os) { return saxman::decode(is, os); }); */
+    /* } */
+
+    /* bool saxman_encode(char *input, size_t input_size, char **output, size_t *output_size) { */
+    /*     return perform(input, input_size, output, output_size, [] (std::istream &is, std::ostream &os) { return saxman::encode(is, os); }); */
+    /* } */
+
+    bool comper_decode(char *input, size_t input_size, char **output, size_t *output_size) {
+        return perform(input, input_size, output, output_size, [] (std::istream &is, std::iostream &os) { return comper::decode(is, os); });
+    }
+
+    bool comper_encode(char *input, size_t input_size, char **output, size_t *output_size) {
+        return perform(input, input_size, output, output_size, [] (std::istream &is, std::ostream &os) { return comper::encode(is, os); });
+    }
+
+    bool kosplus_decode(char *input, size_t input_size, char **output, size_t *output_size) {
+        return perform(input, input_size, output, output_size, [] (std::istream &is, std::iostream &os) { return kosplus::decode(is, os); });
+    }
+
+    bool kosplus_encode(char *input, size_t input_size, char **output, size_t *output_size) {
+        return perform(input, input_size, output, output_size, [] (std::istream &is, std::ostream &os) { return kosplus::encode(is, os); });
+    }
+
+    bool enigma_decode(char *input, size_t input_size, char **output, size_t *output_size) {
+        return perform(input, input_size, output, output_size, [] (std::istream &is, std::iostream &os) { return enigma::decode(is, os); });
+    }
+
+    bool enigma_encode(char *input, size_t input_size, char **output, size_t *output_size) {
+        return perform(input, input_size, output, output_size, [] (std::istream &is, std::ostream &os) { return enigma::encode(is, os); });
+    }
+
+    bool lzkn1_decode(char *input, size_t input_size, char **output, size_t *output_size) {
+        return perform(input, input_size, output, output_size, [] (std::istream &is, std::iostream &os) { return lzkn1::decode(is, os); });
+    }
+
+    bool lzkn1_encode(char *input, size_t input_size, char **output, size_t *output_size) {
+        return perform(input, input_size, output, output_size, [] (std::istream &is, std::ostream &os) { return lzkn1::encode(is, os); });
+    }
+
+    bool rocket_decode(char *input, size_t input_size, char **output, size_t *output_size) {
+        return perform(input, input_size, output, output_size, [] (std::istream &is, std::iostream &os) { return rocket::decode(is, os); });
+    }
+
+    bool rocket_encode(char *input, size_t input_size, char **output, size_t *output_size) {
+        return perform(input, input_size, output, output_size, [] (std::istream &is, std::ostream &os) { return rocket::encode(is, os); });
     }
 }
