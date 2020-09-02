@@ -10,6 +10,7 @@ define EXPORTED
     '_lzkn1_decode', '_lzkn1_encode',\
     '_nemesis_decode', '_nemesis_encode',\
     '_rocket_decode', '_rocket_encode',\
+    '_saxman_decode', '_saxman_encode',\
     '_snkrle_decode', '_snkrle_encode'\
 ]
 endef
