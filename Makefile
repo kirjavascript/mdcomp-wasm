@@ -5,6 +5,7 @@ define EXPORTED
     '_artc42_decode', '_artc42_encode',\
     '_comper_decode', '_comper_encode',\
     '_kosinski_decode', '_kosinski_encode',\
+    '_moduled_kosinski_decode', '_moduled_kosinski_encode',\
     '_kosplus_decode', '_kosplus_encode',\
     '_enigma_decode', '_enigma_encode',\
     '_lzkn1_decode', '_lzkn1_encode',\
