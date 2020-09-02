@@ -43,13 +43,13 @@ extern "C" {
         return perform(input, input_size, output, output_size, [] (std::istream &is, std::ostream &os) { return kosinski::encode(is, os); });
     }
 
-    /* bool moduled_kosinski_decode(char *input, size_t input_size, char **output, size_t *output_size) { */
-    /*     return perform(input, input_size, output, output_size, [] (std::istream &is, std::iostream &os) { return kosinski::decode(is, os, 0, true); }); */
-    /* } */
+    bool moduled_kosinski_decode(char *input, size_t input_size, char **output, size_t *output_size) {
+        return perform(input, input_size, output, output_size, [] (std::istream &is, std::iostream &os) { return kosinski::moduled_decode(is, os); });
+    }
 
-    /* bool moduled_kosinski_encode(char *input, size_t input_size, char **output, size_t *output_size) { */
-    /*     return perform(input, input_size, output, output_size, [] (std::istream &is, std::ostream &os) { return kosinski::encode(is, os, 8192, 256, true); }); */
-    /* } */
+    bool moduled_kosinski_encode(char *input, size_t input_size, char **output, size_t *output_size) {
+        return perform(input, input_size, output, output_size, [] (std::istream &is, std::ostream &os) { return kosinski::moduled_encode(is, os); });
+    }
 
     bool nemesis_decode(char *input, size_t input_size, char **output, size_t *output_size) {
         return perform(input, input_size, output, output_size, [] (std::istream &is, std::iostream &os) { return nemesis::decode(is, os); });
