@@ -43,6 +43,14 @@ extern "C" {
         return perform(input, input_size, output, output_size, [] (std::istream &is, std::ostream &os) { return kosinski::encode(is, os); });
     }
 
+    /* bool moduled_kosinski_decode(char *input, size_t input_size, char **output, size_t *output_size) { */
+    /*     return perform(input, input_size, output, output_size, [] (std::istream &is, std::iostream &os) { return kosinski::decode(is, os, 0, true); }); */
+    /* } */
+
+    /* bool moduled_kosinski_encode(char *input, size_t input_size, char **output, size_t *output_size) { */
+    /*     return perform(input, input_size, output, output_size, [] (std::istream &is, std::ostream &os) { return kosinski::encode(is, os, 8192, 256, true); }); */
+    /* } */
+
     bool nemesis_decode(char *input, size_t input_size, char **output, size_t *output_size) {
         return perform(input, input_size, output, output_size, [] (std::istream &is, std::iostream &os) { return nemesis::decode(is, os); });
     }
@@ -59,13 +67,13 @@ extern "C" {
         return perform(input, input_size, output, output_size, [] (std::istream &is, std::ostream &os) { return artc42::encode(is, os); });
     }
 
-    /* bool saxman_decode(char *input, size_t input_size, char **output, size_t *output_size) { */
-    /*     return perform(input, input_size, output, output_size, [] (std::istream &is, std::iostream &os) { return saxman::decode(is, os); }); */
-    /* } */
+    bool saxman_decode(char *input, size_t input_size, char **output, size_t *output_size, size_t compressed_size) {
+        return perform(input, input_size, output, output_size, [compressed_size] (std::istream &is, std::iostream &os) { return saxman::decode(is, os, compressed_size); });
+    }
 
-    /* bool saxman_encode(char *input, size_t input_size, char **output, size_t *output_size) { */
-    /*     return perform(input, input_size, output, output_size, [] (std::istream &is, std::ostream &os) { return saxman::encode(is, os); }); */
-    /* } */
+    bool saxman_encode(char *input, size_t input_size, char **output, size_t *output_size, bool with_size) {
+        return perform(input, input_size, output, output_size, [with_size] (std::istream &is, std::ostream &os) { return saxman::encode(is, os, with_size); });
+    }
 
     bool comper_decode(char *input, size_t input_size, char **output, size_t *output_size) {
         return perform(input, input_size, output, output_size, [] (std::istream &is, std::iostream &os) { return comper::decode(is, os); });
