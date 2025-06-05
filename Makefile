@@ -7,6 +7,7 @@ define EXPORTED
     '_kosinski_decode', '_kosinski_encode',\
     '_moduled_kosinski_decode', '_moduled_kosinski_encode',\
     '_kosplus_decode', '_kosplus_encode',\
+    '_moduled_kosplus_decode', '_moduled_kosplus_encode',\
     '_enigma_decode', '_enigma_encode',\
     '_lzkn1_decode', '_lzkn1_encode',\
     '_nemesis_decode', '_nemesis_encode',\

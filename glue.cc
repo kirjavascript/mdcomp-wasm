@@ -91,6 +91,14 @@ extern "C" {
         return perform(input, input_size, output, output_size, [] (std::istream &is, std::ostream &os) { return kosplus::encode(is, os); });
     }
 
+    bool moduled_kosplus_decode(char *input, size_t input_size, char **output, size_t *output_size) {
+        return perform(input, input_size, output, output_size, [] (std::istream &is, std::iostream &os) { return kosplus::moduled_decode(is, os); });
+    }
+
+    bool moduled_kosplus_encode(char *input, size_t input_size, char **output, size_t *output_size) {
+        return perform(input, input_size, output, output_size, [] (std::istream &is, std::ostream &os) { return kosplus::moduled_encode(is, os); });
+    }
+
     bool enigma_decode(char *input, size_t input_size, char **output, size_t *output_size) {
         return perform(input, input_size, output, output_size, [] (std::istream &is, std::iostream &os) { return enigma::decode(is, os); });
     }
