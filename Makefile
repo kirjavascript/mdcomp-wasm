@@ -13,7 +13,8 @@ define EXPORTED
     '_nemesis_decode', '_nemesis_encode',\
     '_rocket_decode', '_rocket_encode',\
     '_saxman_decode', '_saxman_encode',\
-    '_snkrle_decode', '_snkrle_encode'\
+    '_snkrle_decode', '_snkrle_encode',\
+    '_malloc', '_free'\
 ]
 endef
 
@@ -23,7 +24,7 @@ wasm:
 	    -Wall \
 	    -Imdcomp/include \
 	    -Iboost_1_73_0 \
-	    -s EXPORTED_FUNCTIONS="$(EXPORTED)" \
 	    -s ALLOW_MEMORY_GROWTH=1 \
-	    -s DEMANGLE_SUPPORT=1 \
+	    -s EXPORTED_RUNTIME_METHODS="['stackSave','stackRestore','stackAlloc','writeArrayToMemory']" \
+	    -s EXPORTED_FUNCTIONS="$(EXPORTED)" \
 	    -o mdcomp_portable.js
