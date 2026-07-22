@@ -4,6 +4,8 @@ define EXPORTED
 [\
     '_artc42_decode', '_artc42_encode',\
     '_comper_decode', '_comper_encode',\
+    '_comperx_decode', '_comperx_encode',\
+    '_moduled_comperx_decode', '_moduled_comperx_encode',\
     '_kosinski_decode', '_kosinski_encode',\
     '_moduled_kosinski_decode', '_moduled_kosinski_encode',\
     '_kosplus_decode', '_kosplus_encode',\
@@ -25,6 +27,6 @@ wasm:
 	    -Imdcomp/include \
 	    -Iboost_1_73_0 \
 	    -s ALLOW_MEMORY_GROWTH=1 \
-	    -s EXPORTED_RUNTIME_METHODS="['stackSave','stackRestore','stackAlloc','writeArrayToMemory']" \
+	    -s EXPORTED_RUNTIME_METHODS="['stackSave','stackRestore','stackAlloc','writeArrayToMemory','HEAP8','HEAP32']" \
 	    -s EXPORTED_FUNCTIONS="$(EXPORTED)" \
 	    -o mdcomp_portable.js

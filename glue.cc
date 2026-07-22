@@ -1,5 +1,6 @@
 #include <mdcomp/artc42.hh>
 #include <mdcomp/comper.hh>
+#include <mdcomp/comperx.hh>
 #include <mdcomp/kosinski.hh>
 #include <mdcomp/kosplus.hh>
 #include <mdcomp/enigma.hh>
@@ -117,6 +118,22 @@ extern "C" {
 
     bool rocket_decode(char *input, size_t input_size, char **output, size_t *output_size) {
         return perform(input, input_size, output, output_size, [] (std::istream &is, std::iostream &os) { return rocket::decode(is, os); });
+    }
+
+    bool comperx_decode(char *input, size_t input_size, char **output, size_t *output_size) {
+        return perform(input, input_size, output, output_size, [] (std::istream &is, std::iostream &os) { return comperx::decode(is, os); });
+    }
+
+    bool comperx_encode(char *input, size_t input_size, char **output, size_t *output_size) {
+        return perform(input, input_size, output, output_size, [] (std::istream &is, std::ostream &os) { return comperx::encode(is, os); });
+    }
+
+    bool moduled_comperx_decode(char *input, size_t input_size, char **output, size_t *output_size) {
+        return perform(input, input_size, output, output_size, [] (std::istream &is, std::iostream &os) { return comperx::moduled_decode(is, os); });
+    }
+
+    bool moduled_comperx_encode(char *input, size_t input_size, char **output, size_t *output_size) {
+        return perform(input, input_size, output, output_size, [] (std::istream &is, std::ostream &os) { return comperx::moduled_encode(is, os); });
     }
 
     bool rocket_encode(char *input, size_t input_size, char **output, size_t *output_size) {
