@@ -24,6 +24,8 @@ wasm:
 	    em++ mdcomp/src/lib/*.cc glue.cc \
 	    -O3 \
 	    -Wall \
+	    -fexceptions \
+	    -s DISABLE_EXCEPTION_CATCHING=0 \
 	    -Imdcomp/include \
 	    -Iboost_1_73_0 \
 	    -s ALLOW_MEMORY_GROWTH=1 \
